@@ -24,15 +24,26 @@ Each space has its own guided flow, material library and design rules:
 
 ## 3. Core features
 
+### 3.0 Show Us Your Space (the starting point of every project)
+Every consultation begins with the client's own space. They upload either:
+- **a photo of the room or garden** (several angles are welcome), or
+- **a site plan or floor plan**: a drawing, a PDF, a photo of a sketch, or an estate agent's plan.
+
+The app reads what was uploaded:
+- From a **plan**: walls, measurements, doors, windows and the shape of the space. It fills in the Consultation's measurements itself, and the client only confirms them.
+- From a **photo**: walls, windows, floor and existing furniture, so materials can be shown on the client's real room.
+
+Uploaded photos and plans are private to the member, stored securely, and can be deleted at any time.
+
 ### 3.1 The Consultation ("Le Questionnaire")
-A friendly step-by-step questionnaire before any design work starts:
+After the upload, a friendly step-by-step questionnaire asks what the upload can't tell us:
 - Who uses the room (ages, pets, allergies, mobility)
 - Room dimensions, ceiling height, window and door positions, which way the windows face
 - Natural light and time of day the room is used most
 - Mood words (e.g. "calm", "playful", "grand", "cosy")
 - Budget tier (modest / considered / generous)
 - Things to keep (existing furniture, flooring, heirlooms)
-- Optional photo upload of the current room
+- (Measurements and window positions come from the uploaded plan where possible.)
 
 Answers feed every recommendation that follows.
 
@@ -52,7 +63,11 @@ Each item shows its real scale at room size, not just a swatch.
 - Live clearance warnings based on professional rules (see section 5)
 - One-click "suggest a layout" that proposes 2–3 arrangements and explains each
 
-### 3.4 Realistic Visualisation
+### 3.4 Realistic Visualisation: their own room, transformed
+The client sees **their own uploaded room** dressed in the chosen scheme, in two ways:
+- **Pattern on the photo (every membership):** the chosen paper, paint, tiles and curtains are laid onto the walls, floor and windows of their real photo, at true scale and in perspective. The pattern is exactly the real one.
+- **Realistic render (premium, Atelier):** an AI-generated, photo-realistic picture of their room with the new scheme, including natural lighting and shadows. It uses a paid image service, so it is limited per month.
+- They can swap any material and see the room again straight away.
 - A 3D room view that applies the chosen wallpaper, tiles, paint, curtains and furniture
 - Lighting set to the room's orientation and time of day (north light is cool, south light is warm)
 - "See it in my room": overlay materials onto the client's uploaded photo
@@ -65,12 +80,19 @@ Every recommendation comes with a short, warm explanation in the voice of a desi
 ### 3.6 Harmony Checker
 Flags combinations that clash, such as two competing large-scale patterns, undertones that fight, or a tile too busy beside a busy paper. It suggests gentle fixes.
 
-### 3.7 Mood Boards and Projects
+### 3.7 Mood Boards ("Planches d'Ambiance")
+Every room gets a mood board, created automatically and then made the client's own:
+- **Built from their room:** the uploaded photo, the transformed render, and true-to-scale swatches of every chosen paper, tile, fabric and paint, plus the furniture pieces and the Designer's Notes.
+- **Looks like a designer's pinned board:** swatches pinned to a linen board with brass pins, handwritten-style labels, and fabric cuttings with pinked edges.
+- **Editable:** drag pieces around, resize, add their own inspiration photos and notes, and swap a material (the board updates).
+- **Whole-house board:** brings every room together, to check the colours flow from room to room.
+- **Share and print:** a private share link for a partner or decorator, and a printable PDF. Boards on the free plan are watermarked.
+
+### 3.8 Projects
 - Save rooms into a "Maison" (the client's home) made up of several rooms
-- Each room can be exported as a mood board (beautiful, printable)
 - Each room has a specification sheet as a PDF: every material, its quantity, its dimensions and where it goes. The client can hand it to a decorator or builder.
 
-### 3.8 Accounts and Subscriptions
+### 3.9 Accounts and Subscriptions
 - Sign up and sign in with email and password, plus Google and Apple sign-in
 - Subscription tiers, for example:
   - **Free ("Visiteur")**: 1 room, limited library, watermarked boards
@@ -150,13 +172,14 @@ Encode these as the app's "designer brain":
 
 ## 7. Build in Phases
 
-1. **Foundation:** vintage design system (colours, fonts, textures, components), auth, landing page
-2. **Consultation + Material Library** for one room (start with Children's Bedroom)
-3. **2D Room Planner** with clearance rules and layout suggestions
-4. **Mood boards, Designer's Notes, Harmony Checker**
-5. **Subscriptions** with Stripe and tier limits
-6. **3D visualisation and photo overlay**
-7. **Remaining rooms and the Garden module**
+1. **Foundation:** vintage design system (colours, fonts, textures, components), auth, landing page *(done)*
+2. **Consultation + Material Library** for one room, starting with the Children's Bedroom *(done)*
+3. **Show Us Your Space:** photo and site-plan upload, reading the plan to fill in the Consultation, and the chosen materials shown on the client's own photo
+4. **Mood boards:** automatic, editable, whole-house, share and print; plus the Harmony Checker
+5. **2D Room Planner** built from the uploaded plan, with clearance rules and layout suggestions
+6. **Subscriptions** with Stripe and tier limits
+7. **Realistic AI renders and 3D view** (premium)
+8. **Remaining rooms and the Garden module** (gardens from photos and site plans too)
 
 At each phase, show me the result, explain the decisions you made, and wait for my feedback before moving on.
 
