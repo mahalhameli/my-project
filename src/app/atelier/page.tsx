@@ -31,7 +31,7 @@ async function Atelier() {
   const user = await requireUser();
   const plan = planInfo(user.plan);
   const firstName = user.name.split(" ")[0];
-  const rooms = listRooms(user.id);
+  const rooms = await listRooms(user.id);
   const limit = ROOM_LIMIT[user.plan];
   const atLimit = rooms.length >= limit;
 

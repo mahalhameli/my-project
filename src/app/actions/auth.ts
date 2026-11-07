@@ -34,15 +34,14 @@ export async function signUp(
       fields,
     };
   }
-  if (findUserByEmail(email)) {
+  const id = randomUUID();
+  const created = await createUser({ id, name, email, passwordHash: await hashPassword(password) });
+  if (!created) {
     return {
       error: "An account with this email already exists. Please sign in.",
       fields,
     };
   }
-
-  const id = randomUUID();
-  createUser({ id, name, email, passwordHash: await hashPassword(password) });
   await createSession(id);
   redirect("/atelier");
 }
@@ -54,7 +53,7 @@ export async function signIn(
   const email = String(formData.get("email") ?? "").trim().toLowerCase();
   const password = String(formData.get("password") ?? "");
 
-  const user = findUserByEmail(email);
+  const user = await findUserByEmail(email);
   const valid = user ? await verifyPassword(password, user.password_hash) : false;
   if (!user || !valid) {
     return {

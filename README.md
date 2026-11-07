@@ -55,8 +55,11 @@ npm run dev
 
 Open http://localhost:3000.
 
-Accounts are stored in a local SQLite file at `data/maison.db`, which is not committed.
-This will move to a hosted database (PostgreSQL / Supabase) before launch.
+Accounts and rooms are stored in PostgreSQL. Online, set `DATABASE_URL` (for example Supabase).
+On your own computer, leave it empty and a local copy of PostgreSQL (PGlite) keeps its data
+in `data/`, which is not committed.
+
+**To put the app online, follow [`DEPLOY.md`](DEPLOY.md).**
 
 ## Pages
 

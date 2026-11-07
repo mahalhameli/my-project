@@ -46,7 +46,7 @@ const money = (n: number) => `£${n.toLocaleString("en-GB")}`;
 async function Room({ params }: { params: Promise<{ id: string }> }) {
   const user = await requireUser();
   const { id } = await params;
-  const row = findRoom(user.id, id);
+  const row = await findRoom(user.id, id);
   if (!row) notFound();
 
   const c = parseConsultation(row.consultation);

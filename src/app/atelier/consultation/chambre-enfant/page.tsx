@@ -32,7 +32,7 @@ export default function ConsultationPage() {
 async function Gate() {
   const user = await requireUser();
   const limit = ROOM_LIMIT[user.plan];
-  if (countRooms(user.id) >= limit) {
+  if ((await countRooms(user.id)) >= limit) {
     return (
       <div className="frame center" style={{ maxWidth: 620, margin: "0 auto" }}>
         <h2>Your room is waiting</h2>

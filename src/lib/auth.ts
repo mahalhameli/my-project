@@ -14,7 +14,7 @@ export type CurrentUser = {
 export async function getCurrentUser(): Promise<CurrentUser | null> {
   const userId = await getSessionUserId();
   if (!userId) return null;
-  const user = findUserById(userId);
+  const user = await findUserById(userId);
   if (!user) return null;
   return { id: user.id, name: user.name, email: user.email, plan: user.plan };
 }

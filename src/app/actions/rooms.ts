@@ -6,10 +6,9 @@ import { refresh } from "next/cache";
 import { requireUser } from "@/lib/auth";
 import { validateConsultation } from "@/lib/consultation";
 import {
-  countRooms,
   deleteRoom as deleteRoomRow,
   findRoom,
-  insertRoom,
+  insertRoomWithinLimit,
   updateRoomSelections,
 } from "@/lib/db";
 import { MATERIALS, type Category } from "@/lib/materials";
@@ -34,20 +33,20 @@ export async function createChildrenRoom(
   if (!result.ok) return { error: result.error };
 
   const limit = ROOM_LIMIT[user.plan];
-  if (countRooms(user.id) >= limit) {
-    return {
-      error: `Your ${planInfo(user.plan).french} membership includes ${limit} room. Remove your existing room from Mon Atelier, or become a Membre for unlimited rooms.`,
-    };
-  }
-
   const id = randomUUID();
-  insertRoom({
+  const added = await insertRoomWithinLimit({
     id,
     userId: user.id,
     type: "chambre-enfant",
     name: result.value.roomName || "La Chambre d'Enfant",
     consultation: result.value,
+    limit,
   });
+  if (!added) {
+    return {
+      error: `Your ${planInfo(user.plan).french} membership includes ${limit} room. Remove your existing room from Mon Atelier, or become a Membre for unlimited rooms.`,
+    };
+  }
   redirect(`/atelier/pieces/${id}`);
 }
 
@@ -60,7 +59,7 @@ export async function toggleSelection(formData: FormData): Promise<void> {
   const category = String(formData.get("category") ?? "") as Category;
   const materialId = String(formData.get("materialId") ?? "");
 
-  const room = findRoom(user.id, roomId);
+  const room = await findRoom(user.id, roomId);
   if (!room || !CATEGORY_IDS.includes(category)) return;
   const material = MATERIALS.find((m) => m.id === materialId && m.category === category);
   if (!material) return;
@@ -69,12 +68,12 @@ export async function toggleSelection(formData: FormData): Promise<void> {
   if (selections[category] === materialId) delete selections[category];
   else selections[category] = materialId;
 
-  updateRoomSelections(user.id, roomId, selections);
+  await updateRoomSelections(user.id, roomId, selections);
   refresh();
 }
 
 export async function removeRoom(formData: FormData): Promise<void> {
   const user = await requireUser();
-  deleteRoomRow(user.id, String(formData.get("roomId") ?? ""));
+  await deleteRoomRow(user.id, String(formData.get("roomId") ?? ""));
   redirect("/atelier");
 }
