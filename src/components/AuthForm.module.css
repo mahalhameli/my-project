@@ -1,0 +1,35 @@
+.page {
+  padding: clamp(40px, 7vw, 96px) 0;
+}
+
+.card {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.card h1 {
+  text-align: center;
+  font-size: clamp(2.2rem, 3vw + 1rem, 3.2rem);
+}
+
+.intro {
+  text-align: center;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin: 0 auto 28px;
+}
+
+.form {
+  margin-top: 8px;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.switch {
+  margin: 22px auto 0;
+  text-align: center;
+  font-size: 0.98rem;
+}

@@ -1,0 +1,92 @@
+.page {
+  padding: clamp(40px, 6vw, 88px) var(--gutter);
+}
+
+.grid {
+  list-style: none;
+  padding: 0;
+  margin: 48px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 36px;
+  align-items: stretch;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.card > :last-child {
+  margin-top: auto;
+}
+
+.featured {
+  background: #fbf2ec;
+}
+
+.ribbon {
+  position: absolute;
+  top: 18px;
+  right: -8px;
+  padding: 4px 14px 4px 18px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #fbf1e6;
+  background: var(--rose-deep);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 10px 50%);
+}
+
+.name {
+  font-size: 2.1rem;
+  margin-top: 8px;
+}
+
+.price {
+  margin: 4px auto 6px;
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  line-height: 1;
+  color: var(--rose-deep);
+}
+.price span {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+.summary {
+  margin: 0 auto 16px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  text-align: left;
+}
+.features li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px dotted var(--french-grey);
+}
+.features li::before {
+  content: "❧";
+  position: absolute;
+  left: 2px;
+  color: var(--gold);
+}
+
+.footnote {
+  margin: 40px auto 0;
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-faint);
+}

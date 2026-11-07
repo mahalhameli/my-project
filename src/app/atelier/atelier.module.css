@@ -1,0 +1,50 @@
+.page {
+  padding: clamp(40px, 6vw, 88px) var(--gutter);
+}
+
+.plan {
+  margin: 10px auto 0;
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+}
+
+.grid {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 32px;
+}
+
+.card {
+  text-align: center;
+}
+
+.plate {
+  padding: 12px;
+  background: var(--paper-light);
+  border: 1px solid var(--gold);
+  outline: 1px solid var(--gold-light);
+  outline-offset: -6px;
+  box-shadow: var(--shadow-soft);
+}
+
+.title {
+  font-size: 1.45rem;
+  margin: 14px 0 4px;
+}
+.title :global(.translation) {
+  font-size: 0.62em;
+}
+
+.soon {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 12px;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  border: 1px dashed var(--french-grey);
+  border-radius: 999px;
+}

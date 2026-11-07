@@ -1,0 +1,178 @@
+/* ---------- Header ---------- */
+
+.header {
+  position: relative;
+  border-bottom: 1px solid var(--gold);
+  background: rgba(250, 245, 234, 0.7);
+}
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background: var(--gold-light);
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.brand:hover {
+  color: var(--ink);
+}
+
+.brandMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  width: 54px;
+  height: 54px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  outline: 1px solid var(--gold-light);
+  outline-offset: 3px;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--paper-light);
+}
+.brandMark span {
+  font-family: var(--font-script);
+  color: var(--rose-deep);
+  font-size: 1.1rem;
+  margin: 0 1px;
+}
+
+.brandText {
+  display: grid;
+  line-height: 1.1;
+}
+.brandName {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.brandSince {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+.nav {
+  display: flex;
+  gap: clamp(12px, 2.4vw, 32px);
+  flex-wrap: wrap;
+}
+
+.navLink {
+  display: grid;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.1;
+  padding: 6px 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.navLink:hover {
+  color: var(--ink);
+  border-bottom-color: var(--gold);
+}
+.navEnglish {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+.account {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 48px;
+}
+.accountPlaceholder {
+  display: inline-block;
+  width: 180px;
+}
+
+@media (max-width: 860px) {
+  .headerInner {
+    justify-content: center;
+    text-align: center;
+  }
+  .nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  margin-top: 40px;
+  padding: 48px 0 40px;
+  border-top: 1px solid var(--gold);
+  text-align: center;
+  background: rgba(235, 223, 200, 0.55);
+}
+.footerFlourish {
+  width: 180px;
+  margin: 0 auto 16px;
+}
+.footerMotto {
+  margin: 0 auto 20px;
+  font-size: 1.9rem;
+  line-height: 1.2;
+}
+.footerMottoEnglish {
+  display: block;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--ink-faint);
+  margin-top: 6px;
+}
+.footerNav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin-bottom: 18px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.footerNav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.footerSmall {
+  margin: 0 auto;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.06em;
+}
