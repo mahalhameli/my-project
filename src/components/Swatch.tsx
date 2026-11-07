@@ -39,7 +39,7 @@ function star(cx: number, cy: number, r: number): string {
   return pts.join(" ");
 }
 
-function tileFor(spec: PatternSpec): Tile {
+export function tileFor(spec: PatternSpec): Tile {
   switch (spec.kind) {
     case "plain":
       return { w: 10, h: 10, content: <rect width={10} height={10} fill={spec.color} /> };
@@ -341,6 +341,26 @@ export function Swatch({
         <PatternDef id={id} spec={spec} />
       </defs>
       <rect width={sizeCm} height={sizeCm} fill={`url(#${id})`} />
+    </svg>
+  );
+}
+
+/**
+ * One repeat of a pattern as a stand-alone SVG, drawn at `pxPerCm` pixels per
+ * centimetre. The room preview turns it into a texture.
+ */
+export function TileSvg({ spec, pxPerCm, svgRef }: { spec: PatternSpec; pxPerCm: number; svgRef?: (el: SVGSVGElement | null) => void }) {
+  const tile = tileFor(spec);
+  return (
+    <svg
+      ref={svgRef}
+      xmlns="http://www.w3.org/2000/svg"
+      width={Math.round(tile.w * pxPerCm)}
+      height={Math.round(tile.h * pxPerCm)}
+      viewBox={`0 0 ${tile.w} ${tile.h}`}
+      preserveAspectRatio="none"
+    >
+      {tile.content}
     </svg>
   );
 }

@@ -297,3 +297,9 @@
   text-align: center;
   margin-top: 16px;
 }
+
+/* ---------- Photos ---------- */
+
+.photos {
+  margin: 8px 0 48px;
+}

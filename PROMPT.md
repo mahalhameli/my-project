@@ -203,7 +203,7 @@ Encode these as the app's "designer brain":
 
 1. **Foundation:** vintage design system (colours, fonts, textures, components), auth, landing page *(done)*
 2. **Consultation + Material Library** for one room, starting with the Children's Bedroom *(done)*
-3. **Show Us Your Space:** photo and site-plan upload, reading the plan to fill in the Consultation, and the chosen materials shown on the client's own photo
+3. **Show Us Your Space:** photo upload, outlines and the chosen materials shown on the client's own photo *(photos done)*; site-plan upload and reading the plan to fill in the Consultation *(next)*
 4. **Mood boards:** automatic, editable, whole-house, share and print; plus the Harmony Checker
 5. **2D Room Planner** built from the uploaded plan, with clearance rules and layout suggestions, plus **real furniture from stores** (in-house catalogue first, then partner feeds)
 6. **Subscriptions** with Stripe and tier limits

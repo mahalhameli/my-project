@@ -6,6 +6,20 @@ French look. The full product brief is in [`PROMPT.md`](PROMPT.md).
 
 ## Status
 
+### Phase 3: Show Us Your Space (photos)
+
+- **Upload a photo** of a room from its page (up to 3 per room). It is straightened and resized in the browser, stored privately,
+  and only its owner can open it.
+- **La Mise au Point:** the client outlines walls, the floor, windows, doors and furniture to keep, with draggable corners
+  and true measurements, then locks them.
+- **Option B, the pattern on their photo:** a WebGL renderer lays the chosen paper or paint on each wall, flooring on the
+  floor, and curtains with a brass pole at each window, in true perspective and at true scale, multiplied by the photo's own
+  light. Windows, doors and kept furniture are never painted over.
+- **Before-and-after slider, saved versions** (with thumbnails) and side-by-side comparison. Saving a version also makes it
+  the room's scheme.
+- Tested pixel by pixel: protected areas are unchanged, changing one layer leaves everything else identical, and restoring
+  a version reproduces it exactly.
+
 ### Phase 2: Consultation & Material Library (children's bedroom)
 
 - **The Consultation** (`/atelier/consultation/chambre-enfant`): five steps covering the child, the room's
@@ -73,7 +87,8 @@ in `data/`, which is not committed.
 | `/materiaux`   | Material Library                      |
 | `/atelier/consultation/chambre-enfant` | The Consultation |
 | `/atelier/pieces/[id]` | A room's scheme and recommendations |
+| `/atelier/pieces/[id]/photos/[photoId]` | The client's own photo: outline and dress it |
 
 ## Next
 
-Phase 3: the 2D Room Planner, with furniture placed to scale, clearance rules and layout suggestions.
+Phase 3, continued: site and floor plans (read automatically to fill in the Consultation). Then Phase 4: mood boards.

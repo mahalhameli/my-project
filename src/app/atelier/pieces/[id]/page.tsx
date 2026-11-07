@@ -14,7 +14,10 @@ import {
   labelOf,
   type Consultation,
 } from "@/lib/consultation";
-import { findRoom } from "@/lib/db";
+import { findRoom, listPhotos } from "@/lib/db";
+import { MAX_PHOTOS_PER_ROOM } from "@/lib/photo-model";
+import { PhotoUpload } from "@/components/PhotoUpload";
+import studioStyles from "@/components/PhotoStudio.module.css";
 import { CATEGORIES, materialById, swatchSizeCm, type Category, type Material } from "@/lib/materials";
 import {
   estimatedCost,
@@ -55,6 +58,7 @@ async function Room({ params }: { params: Promise<{ id: string }> }) {
     return <p className="notice">This room&apos;s consultation could not be read. Please remove it and begin again.</p>;
   }
   const selections = parseSelections(row.selections);
+  const photos = await listPhotos(user.id, row.id);
 
   // The suggested scheme pairs everything with the chosen paper, or the best paper if none is chosen yet.
   const paperRecs = recommend("wallpaper", c, selections);
@@ -102,6 +106,37 @@ async function Room({ params }: { params: Promise<{ id: string }> }) {
       <div className="fleuron">
         <span>❦</span>
       </div>
+
+      {/* ---------- The client's own photos ---------- */}
+      <section className={`frame ${styles.photos}`} aria-labelledby="photos-title">
+        <h2 id="photos-title" className="center">
+          Votre Pièce en Photo <span className="translation">show us your space</span>
+        </h2>
+        <p className="center" style={{ margin: "0 auto 20px" }}>
+          See your chosen papers, paints, curtains and floors on a photo of <em>your own room</em>, with its own light,
+          windows and furniture exactly as they are.
+        </p>
+        {photos.length > 0 && (
+          <ul className={studioStyles.photoGrid}>
+            {photos.map((p, i) => (
+              <li key={p.id}>
+                <Link href={`/atelier/pieces/${row.id}/photos/${p.id}`} className={studioStyles.photoCard}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/api/photos/${p.id}`} alt={`Photo ${i + 1} of ${row.name}`} />
+                  <span>{p.locked ? "Dress this photo →" : "Finish outlining →"}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+        {photos.length < MAX_PHOTOS_PER_ROOM ? (
+          <PhotoUpload roomId={row.id} />
+        ) : (
+          <p className="center">
+            <em>This room has its {MAX_PHOTOS_PER_ROOM} photos. Delete one to add another.</em>
+          </p>
+        )}
+      </section>
 
       {/* ---------- The scheme ---------- */}
       <section className={styles.scheme} aria-labelledby="scheme-title">

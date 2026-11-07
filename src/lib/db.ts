@@ -39,6 +39,31 @@ const SCHEMA = `
     updated_at    TIMESTAMPTZ NOT NULL DEFAULT now()
   );
   CREATE INDEX IF NOT EXISTS rooms_by_user ON rooms (user_id, created_at);
+
+  CREATE TABLE IF NOT EXISTS photos (
+    id            TEXT PRIMARY KEY,
+    user_id       TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    room_id       TEXT NOT NULL REFERENCES rooms(id) ON DELETE CASCADE,
+    mime          TEXT NOT NULL,
+    data_b64      TEXT NOT NULL,
+    width         INTEGER NOT NULL,
+    height        INTEGER NOT NULL,
+    regions       TEXT NOT NULL DEFAULT '[]',
+    locked        BOOLEAN NOT NULL DEFAULT false,
+    created_at    TIMESTAMPTZ NOT NULL DEFAULT now()
+  );
+  CREATE INDEX IF NOT EXISTS photos_by_room ON photos (room_id, created_at);
+
+  CREATE TABLE IF NOT EXISTS photo_versions (
+    id            TEXT PRIMARY KEY,
+    photo_id      TEXT NOT NULL REFERENCES photos(id) ON DELETE CASCADE,
+    user_id       TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    name          TEXT NOT NULL,
+    layers        TEXT NOT NULL,
+    thumbnail     TEXT NOT NULL DEFAULT '',
+    created_at    TIMESTAMPTZ NOT NULL DEFAULT now()
+  );
+  CREATE INDEX IF NOT EXISTS versions_by_photo ON photo_versions (photo_id, created_at);
 `;
 
 async function connect(): Promise<Driver> {
@@ -192,4 +217,107 @@ export async function updateRoomSelections(userId: string, roomId: string, selec
 
 export async function deleteRoom(userId: string, roomId: string): Promise<void> {
   await query("DELETE FROM rooms WHERE id = $1 AND user_id = $2", [roomId, userId]);
+}
+
+/* ---------------- Photos of the client's room ---------------- */
+
+export type PhotoMeta = {
+  id: string;
+  room_id: string;
+  mime: string;
+  width: number;
+  height: number;
+  regions: string; // JSON
+  locked: boolean;
+};
+
+const PHOTO_COLUMNS = "id, room_id, mime, width, height, regions, locked";
+
+export async function listPhotos(userId: string, roomId: string): Promise<PhotoMeta[]> {
+  return query<PhotoMeta>(
+    `SELECT ${PHOTO_COLUMNS} FROM photos WHERE user_id = $1 AND room_id = $2 ORDER BY created_at, id`,
+    [userId, roomId],
+  );
+}
+
+export async function findPhoto(userId: string, photoId: string): Promise<PhotoMeta | undefined> {
+  const rows = await query<PhotoMeta>(`SELECT ${PHOTO_COLUMNS} FROM photos WHERE id = $1 AND user_id = $2`, [
+    photoId,
+    userId,
+  ]);
+  return rows[0];
+}
+
+export async function photoData(userId: string, photoId: string): Promise<{ mime: string; data_b64: string } | undefined> {
+  const rows = await query<{ mime: string; data_b64: string }>(
+    "SELECT mime, data_b64 FROM photos WHERE id = $1 AND user_id = $2",
+    [photoId, userId],
+  );
+  return rows[0];
+}
+
+/** Adds a photo to a room the user owns, if the room has fewer than `limit` photos. */
+export async function insertPhotoWithinLimit(input: {
+  id: string;
+  userId: string;
+  roomId: string;
+  mime: string;
+  dataB64: string;
+  width: number;
+  height: number;
+  limit: number;
+}): Promise<boolean> {
+  const rows = await query<{ id: string }>(
+    `INSERT INTO photos (id, user_id, room_id, mime, data_b64, width, height)
+     SELECT $1, $2, $3, $4, $5, $6, $7
+     WHERE EXISTS (SELECT 1 FROM rooms WHERE id = $3 AND user_id = $2)
+       AND (SELECT COUNT(*) FROM photos WHERE room_id = $3) < $8
+     RETURNING id`,
+    [input.id, input.userId, input.roomId, input.mime, input.dataB64, input.width, input.height, input.limit],
+  );
+  return rows.length === 1;
+}
+
+export async function savePhotoRegions(userId: string, photoId: string, regions: unknown, locked: boolean): Promise<void> {
+  await query("UPDATE photos SET regions = $1, locked = $2 WHERE id = $3 AND user_id = $4", [
+    JSON.stringify(regions),
+    locked,
+    photoId,
+    userId,
+  ]);
+}
+
+export async function deletePhoto(userId: string, photoId: string): Promise<void> {
+  await query("DELETE FROM photos WHERE id = $1 AND user_id = $2", [photoId, userId]);
+}
+
+export type VersionRow = { id: string; name: string; layers: string; thumbnail: string };
+
+export async function listVersions(userId: string, photoId: string): Promise<VersionRow[]> {
+  return query<VersionRow>(
+    "SELECT id, name, layers, thumbnail FROM photo_versions WHERE photo_id = $1 AND user_id = $2 ORDER BY created_at, id",
+    [photoId, userId],
+  );
+}
+
+export async function insertVersion(input: {
+  id: string;
+  photoId: string;
+  userId: string;
+  name: string;
+  layers: unknown;
+  thumbnail: string;
+}): Promise<boolean> {
+  const rows = await query<{ id: string }>(
+    `INSERT INTO photo_versions (id, photo_id, user_id, name, layers, thumbnail)
+     SELECT $1, $2, $3, $4, $5, $6
+     WHERE EXISTS (SELECT 1 FROM photos WHERE id = $2 AND user_id = $3)
+     RETURNING id`,
+    [input.id, input.photoId, input.userId, input.name, JSON.stringify(input.layers), input.thumbnail],
+  );
+  return rows.length === 1;
+}
+
+export async function deleteVersion(userId: string, versionId: string): Promise<void> {
+  await query("DELETE FROM photo_versions WHERE id = $1 AND user_id = $2", [versionId, userId]);
 }
