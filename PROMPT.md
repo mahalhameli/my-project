@@ -82,6 +82,15 @@ The client sees **their own uploaded room** dressed in the chosen scheme, in two
 - "See it in my room": overlay materials onto the client's uploaded photo
 - Correct pattern scale: a large-scale toile must look large on the wall
 
+### 3.4b Real Furniture from Real Stores
+Clients pick actual furniture pieces from the stores they shop at, starting with **Zara Home, Home Centre, Sophia Home, 2XL and Crate & Barrel**.
+- From the uploaded photo and plan, the app works out what the room has, what is missing, and how much space each spot allows (for example, "room for a 160 cm sofa on this wall").
+- It suggests real pieces that fit the **measurements, style, mood and budget**, each with a Designer's Note, and shows each piece **in the client's own photo**. The Golden Rule applies: only the new piece is added.
+- **"Buy at [store]"** opens the product on the store's own website. Purchases earn the business an affiliate commission alongside subscriptions.
+- **Where the products come from:** store affiliate programmes and direct partnerships, which give legal product data (photos, sizes, prices, links), refreshed daily so prices and stock stay current. Never copied from store websites without permission.
+- **Until those feeds arrive:** an in-house furniture catalogue that the business's team fills in by hand (store, photo, dimensions, price, link). Partner feeds plug into the same catalogue later.
+- Store names and logos are used only as each store's partner terms allow.
+
 ### 3.5 The Designer's Notes
 Every recommendation comes with a short, warm explanation in the voice of a designer, for example:
 > *"I've paired the large-scale floral paper with a narrow ticking stripe on the curtains. One bold pattern and one quiet one lets both breathe."*
@@ -185,7 +194,7 @@ Encode these as the app's "designer brain":
 2. **Consultation + Material Library** for one room, starting with the Children's Bedroom *(done)*
 3. **Show Us Your Space:** photo and site-plan upload, reading the plan to fill in the Consultation, and the chosen materials shown on the client's own photo
 4. **Mood boards:** automatic, editable, whole-house, share and print; plus the Harmony Checker
-5. **2D Room Planner** built from the uploaded plan, with clearance rules and layout suggestions
+5. **2D Room Planner** built from the uploaded plan, with clearance rules and layout suggestions, plus **real furniture from stores** (in-house catalogue first, then partner feeds)
 6. **Subscriptions** with Stripe and tier limits
 7. **Realistic AI renders and 3D view** (premium)
 8. **Remaining rooms and the Garden module** (gardens from photos and site plans too)
