@@ -93,12 +93,13 @@ Clients pick actual furniture pieces from the stores they shop at in the UAE, st
 - It suggests real pieces that fit the **measurements, style, mood and budget**, each with a Designer's Note, and shows each piece **in the client's own photo**. The Golden Rule applies: only the new piece is added.
 - **"Buy at [store]"** opens the product on the store's own website. Purchases earn the business an affiliate commission alongside subscriptions.
 - **Where the products come from:** store affiliate programmes and direct partnerships, which give legal product data (photos, sizes, prices, links), refreshed daily so prices and stock stay current. Never copied from store websites without permission.
-- **Using the stores' websites, from day one:**
-  - The business's team browses each store's website and adds chosen pieces to an in-house catalogue (store, dimensions, price in AED, style notes and the product's own link). They use photos only as each store permits, otherwise linking to the product page.
-  - "See more at [store]" opens the store's own website on a search that matches the room, for example "linen sofa" on Crate & Barrel UAE.
-  - Prices and availability are checked against the store's link and marked with the date they were last checked.
-- Partner feeds plug into the same catalogue later, so clients notice no difference.
-- The app does not automatically copy products, prices or photos from store websites without each store's permission, because of terms-of-use, copyright and reliability risks.
+- **No team needed. The plan runs itself, in three steps:**
+  1. **From day one, the designer's specification with "shop it" buttons:** for each spot in the room the app specifies exactly what is needed (for example, "a three-seat sofa, 190–210 cm wide, oatmeal linen, low arms, leaving a 90 cm walkway") and shows *a piece like this* in the client's own photo, at the right size and following the Golden Rule. Buttons open **Zara Home, Home Centre, Sophia Home, 2XL and Crate & Barrel** on their own UAE websites at a matching search, and the client chooses the exact piece there.
+  2. **"Add a piece you love":** the client pastes the link to any product they've found and enters its width and depth, and the app places it in their room to check it fits.
+  3. **Automatic product feeds** from UAE stores with affiliate programmes, refreshed daily, so real products with real AED prices appear in the room, and purchases earn a commission. Candidates found so far: **Danube Home** (ArabClicks) and **Sedar** for curtains and blinds (FlexOffers). Confirm each when applying, as store programmes change.
+  4. **A direct approach to the five favourite stores**, starting with UAE-based 2XL and Sophia Home: "We send you customers who have already seen your furniture in their own room." Stores that agree are added through the same feed.
+- **Not used:** AI agents or programs that browse and copy store websites. That breaks most stores' terms, uses copyrighted photos, is slow and costly per search, breaks when sites change, and risks showing wrong prices.
+- **Note (late 2025):** West Elm and Pottery Barn closed in the UAE, so they are not included.
 - Store names and logos are used only as each store's partner terms allow.
 
 ### 3.5 The Designer's Notes
