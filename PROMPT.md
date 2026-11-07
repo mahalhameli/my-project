@@ -63,10 +63,19 @@ Each item shows its real scale at room size, not just a swatch.
 - Live clearance warnings based on professional rules (see section 5)
 - One-click "suggest a layout" that proposes 2–3 arrangements and explains each
 
+### 3.3b The Golden Rule: their room stays their room
+When a client changes something, **only that thing changes**. Their windows, doors, walls, ceiling, camera angle, existing furniture and lighting stay exactly as they are, every time, unlike general AI image tools that redraw the whole room with each request.
+
+How the app guarantees it:
+1. **The uploaded photo is never redrawn.** It is kept as the original, and every version is built on top of it.
+2. **The room is mapped once, then locked.** After upload, the app outlines each wall, the floor, the ceiling, every window and door, and existing furniture. The client checks and corrects the outlines, and they are saved. Windows and doors are always protected.
+3. **Each material is its own layer** (walls, floor, curtains, tiles, furniture). Changing one layer redraws only that layer.
+4. **Every change is saved as a version.** The client can go back to any earlier version or compare two side by side.
+
 ### 3.4 Realistic Visualisation: their own room, transformed
 The client sees **their own uploaded room** dressed in the chosen scheme, in two ways:
-- **Pattern on the photo (every membership):** the chosen paper, paint, tiles and curtains are laid onto the walls, floor and windows of their real photo, at true scale and in perspective. The pattern is exactly the real one.
-- **Realistic render (premium, Atelier):** an AI-generated, photo-realistic picture of their room with the new scheme, including natural lighting and shadows. It uses a paid image service, so it is limited per month.
+- **A. Pattern on the photo (every membership, always available):** the chosen paper, paint, tiles and curtains are placed exactly inside the saved outlines of their real photo, at true scale and in perspective. The photo's own light and shadows are kept on top, so the lighting is always the room's real lighting. The same choices always give exactly the same picture.
+- **B. Realistic AI render (premium, Atelier):** a photo-realistic picture with natural light and shadow. The AI may only work **inside the outline of the element being changed**. Everything outside it is restored from the original photo pixel for pixel, so it can never move a window or redraw the room. It uses a paid image service, so it is limited per month. If an AI result isn't right, the exact version A is always there.
 - They can swap any material and see the room again straight away.
 - A 3D room view that applies the chosen wallpaper, tiles, paint, curtains and furniture
 - Lighting set to the room's orientation and time of day (north light is cool, south light is warm)
