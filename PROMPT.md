@@ -8,6 +8,11 @@ You are a senior full-stack engineer working with a classically trained interior
 
 Most people get overwhelmed choosing wallpaper, tiles, curtains and furniture placement. They pick things they like one at a time, and the room doesn't hang together. This app guides each client through those decisions, explains *why* each choice works, and shows the result as realistically as possible before they spend any money.
 
+## 1b. Market
+
+- **Country:** United Arab Emirates. **Currency:** AED (UAE dirham) for every price, estimate and membership.
+- Stores, delivery and product availability are those of the UAE.
+
 ## 2. Spaces covered
 
 Each space has its own guided flow, material library and design rules:
@@ -83,12 +88,17 @@ The client sees **their own uploaded room** dressed in the chosen scheme, in two
 - Correct pattern scale: a large-scale toile must look large on the wall
 
 ### 3.4b Real Furniture from Real Stores
-Clients pick actual furniture pieces from the stores they shop at, starting with **Zara Home, Home Centre, Sophia Home, 2XL and Crate & Barrel**.
+Clients pick actual furniture pieces from the stores they shop at in the UAE, starting with **Zara Home, Home Centre, Sophia Home (www.sophiahome.com), 2XL and Crate & Barrel**, using each store's UAE website.
 - From the uploaded photo and plan, the app works out what the room has, what is missing, and how much space each spot allows (for example, "room for a 160 cm sofa on this wall").
 - It suggests real pieces that fit the **measurements, style, mood and budget**, each with a Designer's Note, and shows each piece **in the client's own photo**. The Golden Rule applies: only the new piece is added.
 - **"Buy at [store]"** opens the product on the store's own website. Purchases earn the business an affiliate commission alongside subscriptions.
 - **Where the products come from:** store affiliate programmes and direct partnerships, which give legal product data (photos, sizes, prices, links), refreshed daily so prices and stock stay current. Never copied from store websites without permission.
-- **Until those feeds arrive:** an in-house furniture catalogue that the business's team fills in by hand (store, photo, dimensions, price, link). Partner feeds plug into the same catalogue later.
+- **Using the stores' websites, from day one:**
+  - The business's team browses each store's website and adds chosen pieces to an in-house catalogue (store, dimensions, price in AED, style notes and the product's own link). They use photos only as each store permits, otherwise linking to the product page.
+  - "See more at [store]" opens the store's own website on a search that matches the room, for example "linen sofa" on Crate & Barrel UAE.
+  - Prices and availability are checked against the store's link and marked with the date they were last checked.
+- Partner feeds plug into the same catalogue later, so clients notice no difference.
+- The app does not automatically copy products, prices or photos from store websites without each store's permission, because of terms-of-use, copyright and reliability risks.
 - Store names and logos are used only as each store's partner terms allow.
 
 ### 3.5 The Designer's Notes

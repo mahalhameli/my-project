@@ -54,7 +54,7 @@ export type Material = {
   washability?: Washability;
   allergyFriendly: boolean;
   priceTier: 1 | 2 | 3;
-  unitPrice: number; // indicative, GBP per unit
+  unitPrice: number; // indicative, AED per unit
   note: string; // the designer's own words
 };
 
@@ -97,7 +97,7 @@ export const MATERIALS: Material[] = [
     washability: "scrubbable",
     allergyFriendly: true,
     priceTier: 1,
-    unitPrice: 38,
+    unitPrice: 180,
     note: "A stripe is the most forgiving paper there is: it hides uneven walls and draws the eye upward.",
   },
   {
@@ -116,7 +116,7 @@ export const MATERIALS: Material[] = [
     washability: "washable",
     allergyFriendly: true,
     priceTier: 3,
-    unitPrice: 96,
+    unitPrice: 450,
     note: "Toile tells a story. Children love finding the little scenes, and it grows up with them beautifully.",
   },
   {
@@ -135,7 +135,7 @@ export const MATERIALS: Material[] = [
     washability: "scrubbable",
     allergyFriendly: true,
     priceTier: 2,
-    unitPrice: 58,
+    unitPrice: 275,
     note: "A small sprig reads almost as a texture from across the room, gentle enough to sleep beside.",
   },
   {
@@ -154,7 +154,7 @@ export const MATERIALS: Material[] = [
     washability: "scrubbable",
     allergyFriendly: true,
     priceTier: 1,
-    unitPrice: 42,
+    unitPrice: 195,
     note: "A deeper colour wraps a room in at bedtime. Lovely on a ceiling, too.",
   },
   {
@@ -173,7 +173,7 @@ export const MATERIALS: Material[] = [
     washability: "spongeable",
     allergyFriendly: true,
     priceTier: 3,
-    unitPrice: 110,
+    unitPrice: 515,
     note: "A grand floral is for a child old enough to treat walls kindly: wonderful behind a bed as a single feature wall.",
   },
   {
@@ -192,7 +192,7 @@ export const MATERIALS: Material[] = [
     washability: "washable",
     allergyFriendly: true,
     priceTier: 2,
-    unitPrice: 62,
+    unitPrice: 290,
     note: "Trellis brings the garden indoors and suits a shared room, since it favours no one's taste over another's.",
   },
   {
@@ -211,7 +211,7 @@ export const MATERIALS: Material[] = [
     washability: "scrubbable",
     allergyFriendly: true,
     priceTier: 1,
-    unitPrice: 40,
+    unitPrice: 190,
     note: "Pure delight below a dado rail, with a plain colour above to keep it from becoming too sweet.",
   },
   {
@@ -230,7 +230,7 @@ export const MATERIALS: Material[] = [
     washability: "scrubbable",
     allergyFriendly: true,
     priceTier: 1,
-    unitPrice: 36,
+    unitPrice: 170,
     note: "A spot is a happy, unfussy pattern that partners almost any curtain.",
   },
 
@@ -251,7 +251,7 @@ export const MATERIALS: Material[] = [
     washability: "scrubbable",
     allergyFriendly: true,
     priceTier: 1,
-    unitPrice: 42,
+    unitPrice: 195,
     note: "The white I use for ceilings and woodwork almost everywhere. It makes every other colour look its best.",
   },
   {
@@ -270,7 +270,7 @@ export const MATERIALS: Material[] = [
     washability: "scrubbable",
     allergyFriendly: true,
     priceTier: 2,
-    unitPrice: 54,
+    unitPrice: 255,
     note: "Pink with a little brown in it is grown-up enough for a teenager and soft enough for a baby.",
   },
   {
@@ -289,7 +289,7 @@ export const MATERIALS: Material[] = [
     washability: "scrubbable",
     allergyFriendly: true,
     priceTier: 2,
-    unitPrice: 54,
+    unitPrice: 255,
     note: "Duck-egg is restful and timeless, best in a room with plenty of sun.",
   },
   {
@@ -308,7 +308,7 @@ export const MATERIALS: Material[] = [
     washability: "scrubbable",
     allergyFriendly: true,
     priceTier: 2,
-    unitPrice: 54,
+    unitPrice: 255,
     note: "Sage is the great peacemaker: it sits happily with pinks, blues and every natural wood.",
   },
   {
@@ -327,7 +327,7 @@ export const MATERIALS: Material[] = [
     washability: "scrubbable",
     allergyFriendly: true,
     priceTier: 1,
-    unitPrice: 44,
+    unitPrice: 205,
     note: "Elegant on woodwork and panelling: a quiet backdrop for a teenager's own collections.",
   },
   {
@@ -346,7 +346,7 @@ export const MATERIALS: Material[] = [
     washability: "scrubbable",
     allergyFriendly: true,
     priceTier: 2,
-    unitPrice: 54,
+    unitPrice: 255,
     note: "Brings sunshine to a north-facing room. Lovely below a dado with cream above.",
   },
   {
@@ -365,7 +365,7 @@ export const MATERIALS: Material[] = [
     washability: "scrubbable",
     allergyFriendly: true,
     priceTier: 1,
-    unitPrice: 42,
+    unitPrice: 195,
     note: "When a room needs warmth but not colour, this is the answer.",
   },
   {
@@ -384,7 +384,7 @@ export const MATERIALS: Material[] = [
     washability: "scrubbable",
     allergyFriendly: true,
     priceTier: 3,
-    unitPrice: 68,
+    unitPrice: 320,
     note: "Do not be afraid of a dark colour in a small room: it blurs the corners and feels like a hug.",
   },
 
@@ -405,7 +405,7 @@ export const MATERIALS: Material[] = [
     washability: "washable",
     allergyFriendly: true,
     priceTier: 2,
-    unitPrice: 34,
+    unitPrice: 160,
     note: "Ticking is the perfect quiet partner to a busy paper, and it washes beautifully.",
   },
   {
@@ -424,7 +424,7 @@ export const MATERIALS: Material[] = [
     washability: "washable",
     allergyFriendly: true,
     priceTier: 1,
-    unitPrice: 22,
+    unitPrice: 105,
     note: "Gingham is cheerful, inexpensive and goes in the washing machine. Everything a child's room needs.",
   },
   {
@@ -443,7 +443,7 @@ export const MATERIALS: Material[] = [
     washability: "spongeable",
     allergyFriendly: true,
     priceTier: 3,
-    unitPrice: 72,
+    unitPrice: 340,
     note: "Chintz is for windows that deserve a fanfare. Pair it with a plain or very small-patterned wall.",
   },
   {
@@ -462,7 +462,7 @@ export const MATERIALS: Material[] = [
     washability: "spongeable",
     allergyFriendly: false,
     priceTier: 3,
-    unitPrice: 64,
+    unitPrice: 300,
     note: "Velvet keeps out light and draughts wonderfully, but it holds dust, so I avoid it for anyone with allergies.",
   },
   {
@@ -481,7 +481,7 @@ export const MATERIALS: Material[] = [
     washability: "washable",
     allergyFriendly: true,
     priceTier: 2,
-    unitPrice: 38,
+    unitPrice: 180,
     note: "Plain linen lets a beautiful paper take the stage. Line it with blackout for good sleep.",
   },
   {
@@ -500,7 +500,7 @@ export const MATERIALS: Material[] = [
     washability: "washable",
     allergyFriendly: true,
     priceTier: 2,
-    unitPrice: 44,
+    unitPrice: 205,
     note: "A toile at a smaller scale works with a stripe or plain wall. Avoid pairing it with another large print.",
   },
   {
@@ -519,7 +519,7 @@ export const MATERIALS: Material[] = [
     washability: "washable",
     allergyFriendly: true,
     priceTier: 1,
-    unitPrice: 24,
+    unitPrice: 115,
     note: "Sweet without being saccharine. With a blackout lining it makes a perfect nursery curtain.",
   },
 
@@ -539,7 +539,7 @@ export const MATERIALS: Material[] = [
     ages: ALL_AGES,
     allergyFriendly: true,
     priceTier: 2,
-    unitPrice: 55,
+    unitPrice: 260,
     note: "Timber is warm, easy to sweep and lasts a lifetime. Add a washable rug for crawling and play.",
   },
   {
@@ -557,7 +557,7 @@ export const MATERIALS: Material[] = [
     ages: ALL_AGES,
     allergyFriendly: true,
     priceTier: 3,
-    unitPrice: 95,
+    unitPrice: 445,
     note: "The floor of every Parisian apartment. An heirloom choice for a room that will change many times above it.",
   },
   {
@@ -575,7 +575,7 @@ export const MATERIALS: Material[] = [
     ages: ["older", "teen"],
     allergyFriendly: true,
     priceTier: 1,
-    unitPrice: 32,
+    unitPrice: 150,
     note: "Hard-wearing and handsome, but rough on crawling knees, so I keep it for older children.",
   },
   {
@@ -593,7 +593,7 @@ export const MATERIALS: Material[] = [
     ages: ALL_AGES,
     allergyFriendly: false,
     priceTier: 2,
-    unitPrice: 48,
+    unitPrice: 225,
     note: "Nothing is softer for play on the floor, but carpet holds dust, so choose boards if anyone has allergies.",
   },
   {
@@ -611,7 +611,7 @@ export const MATERIALS: Material[] = [
     ages: ["nursery", "young"],
     allergyFriendly: true,
     priceTier: 1,
-    unitPrice: 34,
+    unitPrice: 160,
     note: "An old-fashioned material that is perfect for paint, glue and spilt milk.",
   },
 ];

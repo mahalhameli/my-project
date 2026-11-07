@@ -3,13 +3,14 @@
 import { useState } from "react";
 import { MOODS } from "@/lib/consultation";
 import { CATEGORIES, MATERIALS, swatchSizeCm, type Category, type Material } from "@/lib/materials";
+import { formatAED } from "@/lib/money";
 import { ScaleView } from "./ScaleView";
 import { Swatch } from "./Swatch";
 import styles from "./MaterialLibrary.module.css";
 
 const SCALE_WORDS = { plain: "Plain", small: "Small-scale", medium: "Medium-scale", large: "Large-scale" } as const;
 const WASH_WORDS = { spongeable: "Spongeable", washable: "Washable", scrubbable: "Scrubbable" } as const;
-const PRICE = ["", "£", "££", "£££"];
+const PRICE = ["", "Accessible", "Mid-range", "Premium"];
 
 export function MaterialLibrary() {
   const [mood, setMood] = useState<string>("all");
@@ -94,7 +95,7 @@ function MaterialCard({
           {m.washability && <li>{WASH_WORDS[m.washability]}</li>}
           <li>{m.undertone === "neutral" ? "Neutral" : m.undertone === "warm" ? "Warm" : "Cool"} undertone</li>
           <li title="Indicative price band">
-            {PRICE[m.priceTier]} · about £{m.unitPrice} per {unit}
+            {PRICE[m.priceTier]} · about {formatAED(m.unitPrice)} per {unit}
           </li>
         </ul>
         <blockquote className={styles.note}>“{m.note}”</blockquote>

@@ -31,7 +31,7 @@ export const PLANS: PlanInfo[] = [
     id: "membre",
     french: "Membre",
     english: "Member",
-    price: "£12",
+    price: "AED 49",
     cadence: "per month",
     summary: "For the whole house, room by room.",
     features: [
@@ -47,7 +47,7 @@ export const PLANS: PlanInfo[] = [
     id: "atelier",
     french: "Atelier",
     english: "Studio",
-    price: "£24",
+    price: "AED 99",
     cadence: "per month",
     summary: "The complete designer's toolkit.",
     features: [

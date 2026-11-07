@@ -26,6 +26,7 @@ import {
   type Recommendation,
   type Selections,
 } from "@/lib/recommend";
+import { formatAED } from "@/lib/money";
 import { parseConsultation, parseSelections } from "@/lib/room-data";
 import styles from "./room.module.css";
 
@@ -41,7 +42,7 @@ export default function RoomPage({ params }: PageProps<"/atelier/pieces/[id]">) 
   );
 }
 
-const money = (n: number) => `£${n.toLocaleString("en-GB")}`;
+const money = formatAED;
 
 async function Room({ params }: { params: Promise<{ id: string }> }) {
   const user = await requireUser();

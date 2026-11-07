@@ -21,7 +21,7 @@ const STEPS = [
     numeral: "III",
     french: "La Mise en Place",
     english: "Arranging the Room",
-    text: "Place your furniture to scale with proper walkways, then see the finished room before you spend a penny.",
+    text: "Place your furniture to scale with proper walkways, then see the finished room before you spend a single dirham.",
   },
 ];
 
