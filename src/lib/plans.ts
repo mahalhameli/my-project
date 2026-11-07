@@ -63,3 +63,10 @@ export const PLANS: PlanInfo[] = [
 export function planInfo(id: Plan): PlanInfo {
   return PLANS.find((p) => p.id === id) ?? PLANS[0];
 }
+
+/** How many rooms each membership may keep. */
+export const ROOM_LIMIT: Record<Plan, number> = {
+  visiteur: 1,
+  membre: Infinity,
+  atelier: Infinity,
+};

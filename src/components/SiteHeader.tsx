@@ -6,6 +6,7 @@ import styles from "./Site.module.css";
 
 const NAV = [
   { href: "/#rooms", french: "Les Pièces", english: "Rooms" },
+  { href: "/materiaux", french: "Les Matériaux", english: "Materials" },
   { href: "/#methode", french: "La Méthode", english: "How it works" },
   { href: "/abonnements", french: "Abonnements", english: "Membership" },
 ];

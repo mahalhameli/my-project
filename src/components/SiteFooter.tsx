@@ -13,6 +13,7 @@ export function SiteFooter() {
         </p>
         <nav aria-label="Footer" className={styles.footerNav}>
           <Link href="/#rooms">Rooms</Link>
+          <Link href="/materiaux">Materials</Link>
           <Link href="/#methode">How it works</Link>
           <Link href="/abonnements">Membership</Link>
           <Link href="/connexion">Sign in</Link>

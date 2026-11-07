@@ -4,7 +4,24 @@ A web application that guides people through choosing wallpaper, tiles, curtains
 paint and furniture layouts for their rooms and gardens, with a timeless, whimsical
 French look. The full product brief is in [`PROMPT.md`](PROMPT.md).
 
-## Status: Phase 1, Foundation
+## Status
+
+### Phase 2: Consultation & Material Library (children's bedroom)
+
+- **The Consultation** (`/atelier/consultation/chambre-enfant`): five steps covering the child, the room's
+  measurements, the light, the feeling and the budget. Answers are checked on the server.
+- **Material Library** (`/materiaux`): 8 wallpapers, 8 paints, 7 curtain fabrics and 5 floors from the
+  house's own (invented) collections, drawn as true-to-scale patterns, filterable by mood, with a
+  full-scale wall preview.
+- **Recommendations** (`/atelier/pieces/[id]`): each material is scored against the consultation using
+  designer rules (age, mood, light direction and undertone, washability, allergies, budget, pattern
+  scale and pairing with the chosen paper). Each suggestion comes with reasons, cautions, the quantity
+  to order and an indicative cost.
+- **Scale view**: one wall of the client's room drawn to scale, dressed with their scheme.
+- The free Visiteur plan keeps one room; members will have unlimited rooms.
+- Rules and quantities are covered by unit tests (`npm test`).
+
+### Phase 1: Foundation
 
 - Vintage French design system: aged-paper background, heritage palette, classical
   serif and script fonts, gilt frames, fleurons, wax-seal buttons, gentle animations
@@ -50,7 +67,10 @@ This will move to a hosted database (PostgreSQL / Supabase) before launch.
 | `/connexion`   | Sign in                               |
 | `/atelier`     | Mon Atelier (signed-in members only)  |
 | `/abonnements` | Memberships                           |
+| `/materiaux`   | Material Library                      |
+| `/atelier/consultation/chambre-enfant` | The Consultation |
+| `/atelier/pieces/[id]` | A room's scheme and recommendations |
 
 ## Next
 
-Phase 2: the Consultation questionnaire and Material Library for the Children's Bedroom.
+Phase 3: the 2D Room Planner, with furniture placed to scale, clearance rules and layout suggestions.

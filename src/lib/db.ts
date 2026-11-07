@@ -26,6 +26,17 @@ function open(): DatabaseSync {
       plan          TEXT NOT NULL DEFAULT 'visiteur',
       created_at    TEXT NOT NULL DEFAULT (datetime('now'))
     );
+    CREATE TABLE IF NOT EXISTS rooms (
+      id            TEXT PRIMARY KEY,
+      user_id       TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      type          TEXT NOT NULL,
+      name          TEXT NOT NULL,
+      consultation  TEXT NOT NULL,
+      selections    TEXT NOT NULL DEFAULT '{}',
+      created_at    TEXT NOT NULL DEFAULT (datetime('now')),
+      updated_at    TEXT NOT NULL DEFAULT (datetime('now'))
+    );
+    CREATE INDEX IF NOT EXISTS rooms_by_user ON rooms(user_id, created_at);
   `);
   return db;
 }
@@ -65,4 +76,57 @@ export function createUser(input: {
   db.prepare(
     "INSERT INTO users (id, name, email, password_hash) VALUES (?, ?, ?, ?)",
   ).run(input.id, input.name, input.email, input.passwordHash);
+}
+
+/* ---------------- Rooms ---------------- */
+
+export type RoomRow = {
+  id: string;
+  user_id: string;
+  type: string;
+  name: string;
+  consultation: string; // JSON
+  selections: string; // JSON
+  created_at: string;
+  updated_at: string;
+};
+
+export function listRooms(userId: string): RoomRow[] {
+  return db
+    .prepare("SELECT * FROM rooms WHERE user_id = ? ORDER BY created_at, rowid")
+    .all(userId) as RoomRow[];
+}
+
+export function countRooms(userId: string): number {
+  const row = db.prepare("SELECT COUNT(*) AS n FROM rooms WHERE user_id = ?").get(userId) as { n: number };
+  return Number(row.n);
+}
+
+/** Only ever returns a room that belongs to this user. */
+export function findRoom(userId: string, roomId: string): RoomRow | undefined {
+  return db
+    .prepare("SELECT * FROM rooms WHERE id = ? AND user_id = ?")
+    .get(roomId, userId) as RoomRow | undefined;
+}
+
+export function insertRoom(input: {
+  id: string;
+  userId: string;
+  type: string;
+  name: string;
+  consultation: unknown;
+}): void {
+  db.prepare(
+    "INSERT INTO rooms (id, user_id, type, name, consultation) VALUES (?, ?, ?, ?, ?)",
+  ).run(input.id, input.userId, input.type, input.name, JSON.stringify(input.consultation));
+}
+
+export function updateRoomSelections(userId: string, roomId: string, selections: unknown): void {
+  db.prepare(
+    "UPDATE rooms SET selections = ?, updated_at = datetime('now') WHERE id = ? AND user_id = ?",
+  ).run(JSON.stringify(selections), roomId, userId);
+}
+
+export function deleteRoom(userId: string, roomId: string): void {
+  db.prepare("DELETE FROM rooms WHERE id = ? AND user_id = ?").run(roomId, userId);
 }

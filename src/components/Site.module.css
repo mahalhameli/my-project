@@ -22,7 +22,7 @@
   gap: 20px;
   flex-wrap: wrap;
   padding-top: 16px;
-  padding-bottom: 16px;
+  padding-bottom: 10px;
 }
 
 .brand {
@@ -78,9 +78,14 @@
 }
 
 .nav {
+  order: 3;
+  width: 100%;
   display: flex;
-  gap: clamp(12px, 2.4vw, 32px);
+  justify-content: center;
+  gap: 4px clamp(16px, 4vw, 56px);
   flex-wrap: wrap;
+  padding-top: 10px;
+  border-top: 1px dotted rgba(176, 141, 72, 0.6);
 }
 
 .navLink {
@@ -123,11 +128,6 @@
   .headerInner {
     justify-content: center;
     text-align: center;
-  }
-  .nav {
-    order: 3;
-    width: 100%;
-    justify-content: center;
   }
 }
 
