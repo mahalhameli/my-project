@@ -74,8 +74,8 @@ How the app guarantees it:
 
 ### 3.4 Realistic Visualisation: their own room, transformed
 The client sees **their own uploaded room** dressed in the chosen scheme, in two ways:
-- **A. Pattern on the photo (every membership, always available):** the chosen paper, paint, tiles and curtains are placed exactly inside the saved outlines of their real photo, at true scale and in perspective. The photo's own light and shadows are kept on top, so the lighting is always the room's real lighting. The same choices always give exactly the same picture.
-- **B. Realistic AI render (premium, Atelier):** a photo-realistic picture with natural light and shadow. The AI may only work **inside the outline of the element being changed**. Everything outside it is restored from the original photo pixel for pixel, so it can never move a window or redraw the room. It uses a paid image service, so it is limited per month. If an AI result isn't right, the exact version A is always there.
+- **B. Pattern on the photo (every membership, always available):** the chosen paper, paint, tiles and curtains are placed exactly inside the saved outlines of their real photo, at true scale and in perspective. The photo's own light and shadows are kept on top, so the lighting is always the room's real lighting. The same choices always give exactly the same picture.
+- **A. Realistic AI render (premium, Atelier):** a photo-realistic picture with natural light and shadow. The AI may only work **inside the outline of the element being changed**. Everything outside it is restored from the original photo pixel for pixel, so it can never move a window or redraw the room. It uses a paid image service, so it is limited per month. If an AI result isn't right, the exact version B is always there.
 - They can swap any material and see the room again straight away.
 - A 3D room view that applies the chosen wallpaper, tiles, paint, curtains and furniture
 - Lighting set to the room's orientation and time of day (north light is cool, south light is warm)
